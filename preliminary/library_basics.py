@@ -8,7 +8,7 @@ Implement the functions below based on their docstrings.
 Notice some docstrings include references to third-party documentation
 Some docstrings **require** you to add references to third-party documentation.
 
-Make sure you read the docstrings C.A.R.E.F.U.L.Y (yes, I took the L to check that you are awake!)
+Make sure you read the docstrings C.A.R.E.F.U.L.L.Y (yes, I took the L to check that you are awake! And I added it back because I am AWAKE!)
 """
 
 # imports - add all required imports here
@@ -17,20 +17,20 @@ import cv2
 import numpy as np
 
 
-VID_PATH = Path("resources/name-of-vid-given-to-you-by-instructor.mp4")
+VID_PATH = Path("resources/video.mp4")
 
 class CodingVideo:
     capture: cv2.VideoCapture
 
 
     def __init__(self, video: Path | str):
-        self.capture = ... # You complete me!
+        self.capture = cv2.VideoCapture(video)
         if not self.capture.isOpened():
             raise ValueError(f"Cannot open {video}")
 
-        self.fps = ...
-        self.frame_count = ...
-        self.duration = ...
+        self.fps = self.capture.get(cv2.CAP_PROP_FPS)
+        self.frame_count = self.capture.get(cv2.CAP_PROP_FRAME_COUNT)
+        self.duration = self.frame_count / self.fps / 60
 
 
     def __str__(self) -> str:
@@ -45,10 +45,16 @@ class CodingVideo:
         ----------
         https://docs.opencv.org/3.4/d4/d15/group__videoio__flags__base.html#gaeb8dd9c89c10a5c63c139bf7c4f5704d
         """
+        return (
+            f"FPS: {self.fps:.2F} | "
+            f"FRAME COUNT: {self.frame_count} | "
+            f"DURATION(mins): {self.duration:.2f}")
 
     def get_frame_number_at_time(self, seconds: int) -> int:
         """Given a time in seconds, returns the value of the nearest frame"""
-
+        frame =  self.fps * seconds  
+        return round(frame) 
+        
 
     def get_frame_rgb_array(self, frame_number: int) -> np.ndarray:
         """Returns a numpy N-dimensional array (ndarray)
