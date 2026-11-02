@@ -822,6 +822,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi", extra = ["standard"] },
+    { name = "numpy" },
     { name = "opencv-python" },
     { name = "pytesseract" },
 ]
@@ -829,6 +830,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.162.0" },
+    { name = "numpy", specifier = ">=2.5.4" },
     { name = "opencv-python", specifier = ">=5.0.0.93" },
     { name = "pytesseract", specifier = ">=0.3.13" },
 ]

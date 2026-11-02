@@ -19,13 +19,13 @@ app = FastAPI()
 # You can add uploads later (not required for assessment)
 # For now, we will just hardcode are samples
 VIDEOS: dict[str, Path] = {
-    "demo": Path("../resources/oop.mp4")
+    "demo": Path("resources/video.mp4")
 }
 
 class VideoMetaData(BaseModel):
     fps: float
     frame_count: int
-    duration_seconds: float
+    duration_minutes: float
     _links: dict | None = None
 
 @app.get("/video")
@@ -59,7 +59,7 @@ def _meta(video: CodingVideo) -> VideoMetaData:
     return VideoMetaData(
             fps=video.fps,
             frame_count=video.frame_count,
-            duration_seconds=video.duration
+            duration_minutes=video.duration
     )
 
 
@@ -85,4 +85,14 @@ def video_frame(vid: str, t: float):
     finally:
       video.capture.release()
 
-# TODO: add enpoint to get ocr e.g. /video/{vid}/frame/{t}/ocr
+@app.get("/video/{vid}/frame/{t}/ocr")
+def video_ocr(vid: str, t: float):
+    video = _open_vid_or_404(vid)
+    
+    try:
+        return Response(
+            content=video.get_text_at_time(t), 
+            media_type="text/plain"
+            )
+    finally:
+        video.capture.release()        

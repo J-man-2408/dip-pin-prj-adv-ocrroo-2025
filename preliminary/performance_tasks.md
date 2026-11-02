@@ -98,9 +98,31 @@ FastAPI will allow us to enable communication with our OCR service from other pr
 4. Run the following curl command (may require git bash on Windows):
    `curl 127.0.0.1:8000/video`
 5. Confirm that a list of videos and URLs is returned by copying the output below:
-   > Description
+
+```json
+   {"count":1,
+   "videos":[{"id":"demo",
+   "path":"..\\resources\\oop.mp4",
+   "_links":{"self":"/video/demo",
+   "frame_example":"/video/demo/frame/1.0"}}]}
+   (jps-dip-pin-prj-adv-ocrroo-2026)
+```
+
+> The API returned a JSON response containing a list of registered videos. it reported one video identified as "demo" along with its file path nad links to access information about the video.
+
 6. What are the names of the two processes that just communicated?
-   >
-7. Modify the simple_api.py so that it works correctly with your implementation and complete any TODO markers
-8. Demonstrate the use of at least two other end points below:
-   >
+   > The two processes are the curl client which sends a HTTP request to the API and the FastAPI application running through Uvicorn which receives the request and return the JSON response.
+
+> 7. Modify the simple_api.py so that it works correctly with your implementation and complete any TODO markers
+
+> 8. Demonstrate the use of at least two other end points below:
+>    I ran `curl 127.0.0.1:8000/video/demo` and got"
+
+```json
+{"fps":23.976023976023978,
+"frame_count":15152,
+"duration_minutes":10.532744444444443}
+(jps-dip-pin-prj-adv-ocrroo-2026)
+```
+
+> As my response. I also ran `curl 127.0.0.1:8000/video/demo/frame/42.0 --output frame.png` and got back the frame.png image which was saved locally.
