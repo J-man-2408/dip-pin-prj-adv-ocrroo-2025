@@ -65,9 +65,20 @@ class CodingVideo:
 
         Reference
         ---------
-        # TODO: Find a tutorial on OpenCV that demonstrates color space conversion
+        https://www.youtube.com/watch?v=ddSo8Nb0mTw
 
         """
+        
+        self.capture.set(cv2.CAP_PROP_POS_FRAMES, frame_number)
+        
+        success, frame = self.capture.read()
+        
+        if not success or frame is None:
+            raise ValueError(f"Couldn't read frame number {frame_number}")
+        
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        
+        return rgb_frame
 
     def get_image_as_bytes(self, seconds: int) -> bytes:
         self.capture.set(cv2.CAP_PROP_POS_FRAMES, self.get_frame_number_at_time(seconds))
@@ -79,20 +90,24 @@ class CodingVideo:
             raise ValueError("Failed to encode frame")
         return buf.tobytes()
 
-
-
-
     def save_as_image(self, seconds: int, output_path: Path | str = 'output.png') -> None:
       """Saves the given frame as a png image
 
       # TODO: Requires a third-party library to convert ndarray to png
       # TODO: Identify the library and add a reference to its documentation
-
-
       """
+      frame_number = self.get_frame_number_at_time(seconds)
+      rgb_array = self.get_frame_rgb_array(frame_number)
+      
+      if rgb_array is None:
+          raise ValueError(f"No frame found at {seconds} seconds.")
+      
+      bgr_array = cv2.cvtColor(rgb_array, cv2.COLOR_RGB2BGR)
+      cv2.imwrite(str(output_path), bgr_array)
+      
 def test():
     """Try out your class here"""
-    oop = CodingVideo("resources/oop.mp4")
+    oop = CodingVideo("resources/video.mp4")
     print(oop)
     oop.save_as_image(42)
 
