@@ -15,6 +15,7 @@ Make sure you read the docstrings C.A.R.E.F.U.L.L.Y (yes, I took the L to check 
 from pathlib import Path
 import cv2
 import numpy as np
+import pytesseract
 
 
 VID_PATH = Path("resources/video.mp4")
@@ -105,11 +106,23 @@ class CodingVideo:
       bgr_array = cv2.cvtColor(rgb_array, cv2.COLOR_RGB2BGR)
       cv2.imwrite(str(output_path), bgr_array)
       
+      
+    def get_text_at_time(self, seconds: int) -> str:
+        """Ectracts and returns text from a video frame at a given time"""
+        frame_number = self.get_frame_number_at_time(seconds)
+        frame = self.get_frame_rgb_array(frame_number)
+        text = pytesseract.image_to_string(frame)
+        
+        return text     
+      
 def test():
     """Try out your class here"""
     oop = CodingVideo("resources/video.mp4")
     print(oop)
     oop.save_as_image(42)
+    
+    text = oop.get_text_at_time(42)
+    print(text)
 
 if __name__ == '__main__':
     test()
