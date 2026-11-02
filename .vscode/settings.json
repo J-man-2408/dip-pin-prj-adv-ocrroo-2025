@@ -1,3 +1,9 @@
 {
-  "cSpell.ignoreWords": ["ndarray"]
+  "cSpell.ignoreWords": ["ndarray"],
+  "cSpell.words": [
+    "numpy",
+    "pyproject",
+    "pytesseract",
+    "Tesseract"
+  ]
 }
