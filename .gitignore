@@ -6,5 +6,10 @@ dist/
 wheels/
 *.egg-info
 
+# Frontend files
+bin/
+obj/
+.vs/
+
 # Virtual environments
 .venv
