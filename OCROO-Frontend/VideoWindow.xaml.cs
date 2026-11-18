@@ -32,5 +32,22 @@ namespace OCROO_Frontend
             VideoPlayer.Source = new Uri(path);
             VideoPlayer.Play();
         }
+
+        private bool isPlaying = true;
+
+        private void PlayPauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (isPlaying)
+            {
+                VideoPlayer.Pause();
+                PlayPauseButton.Content = "PLAY";
+            }
+            else
+            {
+                VideoPlayer.Play();
+                PlayPauseButton.Content = "PAUSE";
+            }
+            isPlaying = !isPlaying;
+        }
     }
 }
