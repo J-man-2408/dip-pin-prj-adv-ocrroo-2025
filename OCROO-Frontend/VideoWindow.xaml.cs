@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Globalization;
+using System.Net.Http;
 
 namespace OCROO_Frontend
 {
@@ -48,6 +50,34 @@ namespace OCROO_Frontend
                 PlayPauseButton.Content = "PAUSE";
             }
             isPlaying = !isPlaying;
+        }
+
+        private async void ExtractButton_Click(object sender, RoutedEventArgs e)
+        {
+            double seconds = VideoPlayer.Position.TotalSeconds;
+            ExtractButton.IsEnabled = false;
+            ExtractButton.Content = "READING...";
+
+            try
+            {
+                string url = $"/video/demo/frame/{seconds.ToString("F2", CultureInfo.InvariantCulture)}/ocr";
+                HttpResponseMessage response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                string text = (await response.Content.ReadAsStringAsync()).Trim();
+
+                if (text.Length == 0)
+                    MessageBox.Show("Error: no text was found in that frame", "Extract");
+                else
+                    MessageBox.Show(text, $"Extracted at {seconds:F2} seconds");
+            }
+            catch (HttpRequestException)
+            {
+                MessageBox.Show("Error: can't reach the server. Check that it is running and try again.", "Extract");
+            }
+            finally
+            {
+                ExtractButton.IsEnabled = true;
+                ExtractButton.Content = "EXTRACT";            }
         }
     }
 }

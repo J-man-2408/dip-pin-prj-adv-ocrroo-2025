@@ -23,7 +23,7 @@
 
         <!-- Buttons -->
         <Button AutomationProperties.Name="Upload Video Not Implemented" Grid.Row="2" Grid.Column="0" Content="UPLOAD" Margin="50, 100" TextBlock.FontSize="20" TextBlock.FontWeight="Bold"/>
-        <Button Grid.Row="2" Grid.Column="2" Content="EXTRACT" Margin="50, 100" TextBlock.FontSize="20" TextBlock.FontWeight="Bold"/>
+        <Button x:Name ="ExtractButton" Grid.Row="2" Grid.Column="2" Content="EXTRACT" Margin="50, 100" TextBlock.FontSize="20" TextBlock.FontWeight="Bold" Click="ExtractButton_Click"/>
         <Button x:Name="PlayPauseButton"
                 Grid.Row="2" Grid.Column="1"
                 Content="PAUSE"
