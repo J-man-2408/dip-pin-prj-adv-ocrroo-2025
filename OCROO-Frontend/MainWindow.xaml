@@ -5,10 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OCROO_Frontend"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1330">
     <Grid>
-        <Button Content="GET Video" HorizontalAlignment="Left" Height="25" Margin="112,247,0,0" VerticalAlignment="Top" Width="82" Click="GET_Button_Click"/>
-        <TextBlock HorizontalAlignment="Left" Height="171" Margin="312,160,0,0" TextWrapping="Wrap" Text="GET information" VerticalAlignment="Top" Width="153" x:Name="TextBoxGetInformation"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Header -->
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Welcome To OCROO" HorizontalAlignment="Center" Height="80" VerticalAlignment="Center" Width="800" FontSize="40" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        
+        <!-- Main Body -->
+        <Image AutomationProperties.Name="Astonaut Boy Connected To Book Image" Source="/Images/hero-image.jpg" Grid.Row="1" Grid.RowSpan="2"  Grid.ColumnSpan="2" Stretch="Fill"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="Your Friendly Optical Character Recognition Software" HorizontalAlignment="Center" Height="80" VerticalAlignment="Center" Width="500" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" TextWrapping="Wrap"/>
     </Grid>
 </Window>
