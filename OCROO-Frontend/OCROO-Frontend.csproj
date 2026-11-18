@@ -17,4 +17,10 @@
     <Resource Include="Images\hero-image.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="video.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

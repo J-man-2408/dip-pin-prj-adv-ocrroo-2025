@@ -27,6 +27,10 @@ namespace OCROO_Frontend
         public VideoWindow()
         {
             InitializeComponent();
+
+            string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "video.mp4");
+            VideoPlayer.Source = new Uri(path);
+            VideoPlayer.Play();
         }
     }
 }

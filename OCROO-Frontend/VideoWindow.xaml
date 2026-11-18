@@ -24,6 +24,14 @@
         <!-- Buttons -->
         <Button AutomationProperties.Name="Upload Video Not Implemented" Grid.Row="2" Grid.Column="0" Content="UPLOAD" Margin="50, 100" TextBlock.FontSize="20" TextBlock.FontWeight="Bold"/>
         <Button AutomationProperties.Name="Extract Text" Grid.Row="2" Grid.Column="2" Content="EXTRACT" Margin="50, 100" TextBlock.FontSize="20" TextBlock.FontWeight="Bold"/>
+        
+        <!-- Video Player -->
+        <MediaElement x:Name="VideoPlayer"
+                      Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
+                      Margin="0,50,0,100"
+                      LoadedBehavior="Manual"
+                      Stretch="Uniform"
+                      AutomationProperties.Name="Video player screen"/>
     </Grid>
     
 </Window>
