@@ -32,40 +32,52 @@
                     <DataTemplate>
                         <Border BorderBrush="#b395b9" BorderThickness="0, 0, 0, 2" Padding="30, 20">
                             <Grid>
-                                <Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                
+                                    <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <StackPanel Grid.Column="0">
-                                        <TextBlock Text="Extraction File:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="{Binding Location}" FontSize="20" Margin="0, 0, 0, 10" HorizontalAlignment="Center"/>
+                                    <StackPanel Grid.Column="0" Grid.Row="0">
+                                        <TextBlock Text="Extraction File:" FontSize="20" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Location}" FontSize="20" Margin="0, 0, 0, 10"/>
 
-                                        <TextBlock Text="Extraction Time:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="{Binding Timing}" FontSize="20" Margin="0, 0, 0, 10" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Extraction Time:" FontSize="20" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Timing}" FontSize="20" Margin="0, 0, 0, 10"/>
 
-                                        <TextBlock Text="Extraction Text:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Extraction Text:" FontSize="20" FontWeight="Bold"/>
                                         <TextBlock Text="{Binding Text, Mode=OneWay}" 
                                                    FontSize="20" Margin="0, 0, 0, 10"
-                                                   AutomationProperties.Name="Extracted Text" 
-                                                   HorizontalAlignment="Center"/>
+                                                   AutomationProperties.Name="Extracted Text"/>
+                                    </StackPanel>
 
-                                    <Button Background="#854b8f" Foreground="White" 
-                                            Content="COPY" Margin="0, 15, 0, 0" 
+                                    <Button Grid.Row="0" Grid.Column="1"
+                                            Background="#854b8f" Foreground="White"
+                                            Content="DELETE"
+                                            Width="200" Height="40"
+                                            VerticalAlignment="Top"
+                                            TextBlock.FontSize="20" TextBlock.FontWeight="Bold"
+                                            Click="DeleteButton_Click"/>
+
+                                    <Button Grid.Row="1" Grid.Column="0"
+                                            Background="#854b8f" Foreground="White"
+                                            Content="COPY" Margin="0,15,0,0"
                                             HorizontalAlignment="Left"
-                                            Width=" 120" Height="40"
-                                            TextBlock.FontSize="20" 
-                                            TextBlock.FontWeight="Bold"
-                                            Click="CopyButton_Click"/>       
-                                </StackPanel>
+                                            Width="120" Height="40"
+                                            TextBlock.FontSize="20" TextBlock.FontWeight="Bold"
+                                            Click="CopyButton_Click"/>
 
-                                <Button Background="#854b8f" Foreground="White" 
-                                        Grid.Column="1" 
-                                        Content="DELETE" 
-                                        Click="DeleteButton_Click"
-                                        Width="120" Height="40"
-                                        VerticalAlignment="Top"/>
-                            </Grid>
+                                    <Button Grid.Row="1" Grid.Column="1"
+                                            Background="#854b8f" Foreground="White"
+                                            Content="DOWNLOAD .TXT" Margin="0,15,0,0"
+                                            Width="200" Height="40"
+                                            TextBlock.FontSize="20" TextBlock.FontWeight="Bold"
+                                            Click="DownloadButton_Click"/>      
+                                </Grid>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

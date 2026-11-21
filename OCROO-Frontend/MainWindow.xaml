@@ -22,7 +22,7 @@
             <StackPanel>
                 <Button Content="HOME" Click="HomeMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
                 <Button Content="OCR VIDEO LIST" Click="VideoMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
-                <Button Content="VIDEO RESULTS" Click="ExtractionMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
+                <Button Content="EXTRACTION TEXT" Click="ExtractionMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
                 <Button Content="ABOUT US" Click="AboutMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
             </StackPanel>
         </Border>
