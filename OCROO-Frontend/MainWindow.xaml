@@ -5,26 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OCROO_Frontend"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1330">
+        Title="OCROO" Height="800" Width="1330">
+
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="300"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <!-- Current page -->
+        <Grid x:Name="PageHost">
+            <local:HomePage x:Name="HomePageView"/>
+            <local:VideoWindow x:Name="VideoPageView" Visibility="Collapsed"/>
+            <local:ExtractionTextWindow x:Name="ExtractionPageView" Visibility="Collapsed"/>
+            <local:AboutPage x:Name="AboutPageView" Visibility="Collapsed"/>
+        </Grid>
 
-        <!-- Colour Scheme -->
-        <Border Grid.Row="0" Grid.ColumnSpan="2" Background="#b395b9" />
+        <!-- The Menu -->
+        <Border x:Name="MenuPanel" Visibility="Collapsed" Background="#854b8f"
+            HorizontalAlignment="Left" Width="240" Margin="0,100,0,0">
+            <StackPanel>
+                <Button Content="HOME" Click="HomeMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
+                <Button Content="OCR VIDEO LIST" Click="VideoMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
+                <Button Content="VIDEO RESULTS" Click="ExtractionMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
+                <Button Content="ABOUT US" Click="AboutMenu_Click" Height="60" FontSize="18" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
 
-        <!-- Header -->
-        <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Welcome To OCROO" HorizontalAlignment="Center" Height="80" VerticalAlignment="Center" Width="800" FontSize="40" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-
-        <!-- Main Body -->
-        <Image AutomationProperties.Name="Astonaut Boy Connected To Book Image" Source="/Images/hero-image.jpg" Grid.Row="1" Grid.RowSpan="2"  Grid.ColumnSpan="2" Stretch="Fill"/>
-        <Label Grid.Row="2" Grid.Column="1" Content="Your Friendly Optical Character Recognition Software" HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" Width="700" FontSize="25" FontWeight="Bold" HorizontalContentAlignment="Center" Background="#b395b9" VerticalContentAlignment="Center" Margin="0,190,0,0"/>
+        <!-- Menu Buttons -->
+        <Button x:Name="MenuButton" Content="MENU" 
+                Background="#854b8f" Foreground="White"
+                Click="MenuButton_Click"
+                AutomationProperties.Name="Menu"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="20,25,0,0" Width="120" Height="50" 
+                FontSize="18" FontWeight="Bold"/>
     </Grid>
 </Window>

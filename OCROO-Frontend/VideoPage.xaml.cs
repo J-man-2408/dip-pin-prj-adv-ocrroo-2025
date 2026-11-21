@@ -20,7 +20,7 @@ namespace OCROO_Frontend
     /// <summary>
     /// Interaction logic for VideoWindow.xaml
     /// </summary>
-    public partial class VideoWindow : Window
+    public partial class VideoWindow : UserControl
     {
         private static readonly HttpClient client = new()
         {
@@ -33,9 +33,17 @@ namespace OCROO_Frontend
             string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "video.mp4");
             VideoPlayer.Source = new Uri(path);
             VideoPlayer.Play();
+            VideoPlayer.Pause();
         }
 
         private bool isPlaying = true;
+
+        public void PauseVideo()
+        {
+            VideoPlayer.Pause();
+            PlayPauseButton.Content = "PLAY";
+            isPlaying = false;
+        }
 
         private void PlayPauseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -66,15 +74,20 @@ namespace OCROO_Frontend
                 string text = (await response.Content.ReadAsStringAsync()).Trim();
 
                 if (text.Length == 0)
+                {
                     MessageBox.Show("Error: no text was found in that frame", "Extract");
+                }
+
                 else
+                {
                     ExtractionStore.Items.Add(new Extraction
                     {
-                        Location = "demo (resourses/video.mp4)",
+                        Location = "demo (resources/video.mp4)",
                         Timing = $"{seconds:F2} seconds",
                         Text = text
                     });
-                MessageBox.Show("Text extracted and added to Extraction Text page", "Extract");
+                    MessageBox.Show("Text extracted and added to Extraction Text page", "Extract");
+                }
             }
             catch (HttpRequestException)
             {
@@ -85,11 +98,6 @@ namespace OCROO_Frontend
                 ExtractButton.IsEnabled = true;
                 ExtractButton.Content = "EXTRACT";            
             }
-        }
-
-        private void ResultsButton_Click(object sender, RoutedEventArgs e)
-        {
-            new ExtractionTextWindow().Show();
         }
     }
 }

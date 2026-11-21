@@ -17,7 +17,7 @@ namespace OCROO_Frontend
     /// <summary>
     /// Interaction logic for ExtractionTextWindow.xaml
     /// </summary>
-    public partial class ExtractionTextWindow : Window
+    public partial class ExtractionTextWindow : UserControl
     {
         public ExtractionTextWindow()
         {
