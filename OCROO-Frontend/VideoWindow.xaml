@@ -17,15 +17,33 @@
             <ColumnDefinition Width="900"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
+        <!-- Colour Scheme -->
+        <Border Grid.Row="0" Grid.ColumnSpan="3" Background="#b395b9" />
+        <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="#FFE4F2"/>
+
         <!-- Heading -->
         <Label Grid.Row="0" Grid.ColumnSpan="3" Content="Select A Video To Extract Text From" HorizontalAlignment="Center" Height="80" VerticalAlignment="Center" Width="800" FontSize="40" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 
         <!-- Buttons -->
-        <Button AutomationProperties.Name="Upload Video Not Implemented" Grid.Row="2" Grid.Column="0" Content="UPLOAD" Margin="50, 100" TextBlock.FontSize="20" TextBlock.FontWeight="Bold"/>
-        <Button x:Name ="ExtractButton" Grid.Row="2" Grid.Column="2" Content="EXTRACT" Margin="50, 100" TextBlock.FontSize="20" TextBlock.FontWeight="Bold" Click="ExtractButton_Click"/>
+        <Button AutomationProperties.Name="Upload Video Not Implemented" 
+                Background="#854b8f" Foreground="White" 
+                Grid.Row="2" Grid.Column="0" 
+                Content="UPLOAD" Margin="50, 100" 
+                TextBlock.FontSize="20" 
+                TextBlock.FontWeight="Bold"/>
+        
+        <Button x:Name ="ExtractButton" 
+                Background="#854b8f" Foreground="White" 
+                Grid.Row="2" Grid.Column="2" 
+                Content="EXTRACT" Margin="50, 100" 
+                TextBlock.FontSize="20" 
+                TextBlock.FontWeight="Bold" 
+                Click="ExtractButton_Click"/>
+
         <Button x:Name="PlayPauseButton"
                 Grid.Row="2" Grid.Column="1"
+                Background="#854b8f" Foreground="White"
                 Content="PAUSE"
                 Width="200" Height="60"
                 VerticalAlignment="Bottom" 
@@ -33,6 +51,15 @@
                 TextBlock.FontSize="20" 
                 TextBlock.FontWeight="Bold"
                 Click="PlayPauseButton_Click"/>
+        
+        <Button Grid.Row="0" Grid.Column="2" 
+                Background="#854b8f" Foreground="White"
+                Content="RESULTS" 
+                Width="120" Height="40"
+                TextBlock.FontSize="20" 
+                TextBlock.FontWeight="Bold"
+                HorizontalAlignment="Right" Margin="0,0,50,0" 
+                Click="ResultsButton_Click"/>
         
         <!-- Video Player -->
         <MediaElement x:Name="VideoPlayer"

@@ -16,11 +16,15 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <!-- Colour Scheme -->
+        <Border Grid.Row="0" Grid.ColumnSpan="2" Background="#b395b9" />
+
         <!-- Header -->
         <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Welcome To OCROO" HorizontalAlignment="Center" Height="80" VerticalAlignment="Center" Width="800" FontSize="40" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 
         <!-- Main Body -->
         <Image AutomationProperties.Name="Astonaut Boy Connected To Book Image" Source="/Images/hero-image.jpg" Grid.Row="1" Grid.RowSpan="2"  Grid.ColumnSpan="2" Stretch="Fill"/>
-        <Label Grid.Row="2" Grid.Column="1" Content="Your Friendly Optical Character Recognition Software" HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" Width="700" FontSize="25" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" Margin="0,190,0,0"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="Your Friendly Optical Character Recognition Software" HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" Width="700" FontSize="25" FontWeight="Bold" HorizontalContentAlignment="Center" Background="#b395b9" VerticalContentAlignment="Center" Margin="0,190,0,0"/>
     </Grid>
 </Window>

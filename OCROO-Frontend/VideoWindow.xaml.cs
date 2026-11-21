@@ -68,7 +68,13 @@ namespace OCROO_Frontend
                 if (text.Length == 0)
                     MessageBox.Show("Error: no text was found in that frame", "Extract");
                 else
-                    MessageBox.Show(text, $"Extracted at {seconds:F2} seconds");
+                    ExtractionStore.Items.Add(new Extraction
+                    {
+                        Location = "demo (resourses/video.mp4)",
+                        Timing = $"{seconds:F2} seconds",
+                        Text = text
+                    });
+                MessageBox.Show("Text extracted and added to Extraction Text page", "Extract");
             }
             catch (HttpRequestException)
             {
@@ -77,7 +83,13 @@ namespace OCROO_Frontend
             finally
             {
                 ExtractButton.IsEnabled = true;
-                ExtractButton.Content = "EXTRACT";            }
+                ExtractButton.Content = "EXTRACT";            
+            }
+        }
+
+        private void ResultsButton_Click(object sender, RoutedEventArgs e)
+        {
+            new ExtractionTextWindow().Show();
         }
     }
 }
