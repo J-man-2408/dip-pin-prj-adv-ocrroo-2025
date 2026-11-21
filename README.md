@@ -48,7 +48,7 @@ uv sync
 
 # Running the Project
 
-OCRRoo currently provides a library and a FastAPI backend. There is no `main.py` entry point or frontend at this stage.
+OCRRoo currently provides a library and a FastAPI backend and a Windows desktop frontend. There is no `main.py` entry point.
 
 ## FastAPI Development Server
 
@@ -68,3 +68,7 @@ The API will be available at: `http:127.0.0.1:800`.
 | GET    | /video/{vid}               | Returns the metadata about a video, including its FPS, frame count and duration    |
 | GET    | /video/{vid}/frame/{t}     | Extracts and returns a video frame as a PNG image at the specified time in seconds |
 | GET    | /video/{vid}/frame/{t}/ocr | Extracts a frame and returns the text recognised by Tesseract as plain text        |
+
+# Frontend
+
+OCRRoo

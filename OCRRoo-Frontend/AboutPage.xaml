@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="OCRRoo_Frontend.AboutPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:OCRRoo_Frontend"
+             mc:Ignorable="d"
+             d:DesignHeight="800"
+        d:DesignWidth="1330">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Colour Scheme -->
+        <Border Grid.Row="0"
+                Background="#b395b9"/>
+        <Border Grid.Row="1"
+                Background="#FFE4F2"/>
+
+        <!-- Header -->
+        <Label Grid.Row="0"
+                Content="About Us"
+                HorizontalAlignment="Center"
+                Height="80"
+                VerticalAlignment="Center"
+                Width="800"
+                FontSize="40"
+                FontWeight="Bold"
+                HorizontalContentAlignment="Center"/>
+
+        <!-- Main Body -->
+        <ScrollViewer Grid.Row="1"
+                VerticalScrollBarVisibility="Auto">
+            <StackPanel HorizontalAlignment="Center"
+                    MaxWidth="900"
+                    Margin="50,30">
+
+                <Label Content="Our Goal"
+                        HorizontalAlignment="Center"
+                        FontSize="28"
+                        FontWeight="Bold"
+                        AutomationProperties.HeadingLevel="Level2"/>
+                <TextBlock TextWrapping="Wrap"
+                        FontSize="20"
+                        Margin="0,0,0,30"
+                        TextAlignment="Center"
+                           Text="The Goal of OCRRoo is to allow people with a disability affecting their vision to be able to pull text from a video into a form that can be read by a screen reader. The text extracted can be copied for easy access and to be revisited later. This allows tutorials and videos to be experienced by a wider range of people with different abilities."/>
+
+                <Label Content="Our Reason"
+                        HorizontalAlignment="Center"
+                        FontSize="28"
+                        FontWeight="Bold"
+                        AutomationProperties.HeadingLevel="Level2"/>
+                <TextBlock TextWrapping="Wrap"
+                        FontSize="20"
+                        Margin="0,0,0,30"
+                        TextAlignment="Center"
+                           Text="Our reason is our love for programming. This application was designed with future coders in mind. While the program can extract text from any video, the main idea started with wanting visually impared peoples to be able to extract code from tutorials where the code is put onto the screen but never spoken aloud."/>
+
+                <Label Content="Our People"
+                        HorizontalAlignment="Center"
+                        FontSize="28"
+                        FontWeight="Bold"
+                        AutomationProperties.HeadingLevel="Level2"/>
+                <TextBlock TextWrapping="Wrap"
+                        FontSize="20"
+                        TextAlignment="Center"
+                           Text="This application was made by Jasmine Sullian (J_man_2408) in partnership with North Metropolitan TAFE as a part of the Diploma in Advanced Programming 2026, Semester 2."/>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
 
-namespace OCROO_Frontend
+namespace OCRRoo_Frontend
 {
     /// <summary>
     /// Interaction logic for ExtractionTextWindow.xaml

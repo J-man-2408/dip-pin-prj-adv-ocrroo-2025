@@ -1,0 +1,70 @@
+﻿<Window x:Class="OCRRoo_Frontend.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OCRRoo_Frontend"
+        mc:Ignorable="d"
+        Title="OCRRoo"
+        Height="800"
+        Width="1330">
+
+    <Grid>
+        <!-- Current page -->
+        <Grid x:Name="PageHost">
+            <local:HomePage x:Name="HomePageView"/>
+            <local:VideoWindow x:Name="VideoPageView"
+                    Visibility="Collapsed"/>
+            <local:ExtractionTextWindow x:Name="ExtractionPageView"
+                    Visibility="Collapsed"/>
+            <local:AboutPage x:Name="AboutPageView"
+                    Visibility="Collapsed"/>
+        </Grid>
+
+        <!-- The Menu -->
+        <Border x:Name="MenuPanel"
+                Visibility="Collapsed"
+                Background="#854b8f"
+                HorizontalAlignment="Left"
+                Width="240"
+                Margin="0,100,0,0">
+            <StackPanel>
+                <Button Content="HOME"
+                        Click="HomeMenu_Click"
+                        Height="60"
+                        FontSize="18"
+                        FontWeight="Bold"/>
+                <Button Content="OCR VIDEO LIST"
+                        Click="VideoMenu_Click"
+                        Height="60"
+                        FontSize="18"
+                        FontWeight="Bold"/>
+                <Button Content="EXTRACTION TEXT"
+                        Click="ExtractionMenu_Click"
+                        Height="60"
+                        FontSize="18"
+                        FontWeight="Bold"/>
+                <Button Content="ABOUT US"
+                        Click="AboutMenu_Click"
+                        Height="60"
+                        FontSize="18"
+                        FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Menu Buttons -->
+        <Button x:Name="MenuButton"
+                Content="MENU"
+                Background="#854b8f"
+                Foreground="White"
+                Click="MenuButton_Click"
+                AutomationProperties.Name="Menu"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="20,25,0,0"
+                Width="120"
+                Height="50"
+                FontSize="18"
+                FontWeight="Bold"/>
+    </Grid>
+</Window>

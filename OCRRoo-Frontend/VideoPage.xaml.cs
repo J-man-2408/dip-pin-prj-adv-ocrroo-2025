@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Globalization;
 using System.Net.Http;
 
-namespace OCROO_Frontend
+namespace OCRRoo_Frontend
 {
     /// <summary>
     /// Interaction logic for VideoWindow.xaml
@@ -96,7 +96,7 @@ namespace OCROO_Frontend
             finally
             {
                 ExtractButton.IsEnabled = true;
-                ExtractButton.Content = "EXTRACT";            
+                ExtractButton.Content = "EXTRACT";
             }
         }
     }

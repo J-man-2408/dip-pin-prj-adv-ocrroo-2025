@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace OCROO_Frontend
+namespace OCRRoo_Frontend
 {
     /// <summary>
     /// Interaction logic for App.xaml

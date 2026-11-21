@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OCROO_Frontend
+namespace OCRRoo_Frontend
 {
     public class Extraction
     {
         public string Location { get; set; } = "";
         public string Timing { get; set; } = "";
-        public string Text { get; set; } = "";  
+        public string Text { get; set; } = "";
     }
 
     public static class ExtractionStore
