@@ -58,7 +58,7 @@ Start the development server from the project root
 uv run fastapi dev preliminary/simple_api.py
 ```
 
-The API will be available at: `http:127.0.0.1:800`.
+The API will be available at: `http://127.0.0.1:8000`.
 
 ## Available API endpoints
 
@@ -71,4 +71,38 @@ The API will be available at: `http:127.0.0.1:800`.
 
 # Frontend
 
-OCRRoo
+OCRRoo includes a Windows desktop frontend built with WPF (C#, .NET). It talks to the FastAPI backend over HTTP, so the backend must be running. The frontend lives in the `OCRRoo-Frontend folder`.
+
+## Frontend Requirements
+
+- Windows
+- Visual Studio with the .NEt desktop development workload
+- The FastAPI backend running (see Running the Project)
+
+## Running the Frontend
+
+1. Start the FastAPI from the project root
+2. Open the solution file in the `OCRRoo-Frontend` folder in Visual Studio.
+3. Press F5 to build and run
+
+The frontend expects the backend at `http://127.0.0.1:8000` and uses the hardcoded `demo` video.
+
+## Pages
+
+The MENU button at the top left opens the navigation panel
+
+| Page           | Description                                         |
+| -------------- | --------------------------------------------------- |
+| Home           | Welcome page                                        |
+| OCR Video List | Plays the video with PLAY/PAUSE and EXTRACT buttons |
+| Video Results  | Lists every extraction with its file, time and text |
+| About Us       | Goal, reason and people behind the project          |
+
+If a frame has no text or the server cannot be reached an error message is shown.
+
+## Current Limitations
+
+- The `UPLOAD` button is a placeholder and does nothing. The video is hardcoded.
+- The frontend plays its own copy of the video.mp4 - copied next to the app when it is built - while the backend reads `resources/video.mp4`. Both must be the same video.
+- Extractions are kept in memory but lost when the app is closed.
+- The server address and the video id (`demo`) are hardcoded.
