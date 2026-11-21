@@ -44,7 +44,7 @@ Alice works as a receptionist and teaches herself to code in the evenings using 
 
 1. Opens the application with a keyboard and moves through the menu with Tab and arrow keys
 2. Plays the demo video and pauses it where code appears on screen
-3. Presses the Extract button (or the keyboard shortcut) and hears a "Reading text..." followed by a confirmation
+3. Presses the Extract button and hears a "Reading text..." from her screen reader followed by a confirmation
 4. Opens the results list where each extraction is its own section with the time is was taken
 5. Has her screen reader read the text where she can also download a txt file or copy the information.
 6. Deletes any extractions she doesn't need.
