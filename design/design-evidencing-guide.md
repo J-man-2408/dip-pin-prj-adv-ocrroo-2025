@@ -50,7 +50,7 @@ What does this person need from the application? What are their pain points?
 
 ### Relevant issue
 
-> Link to an issue that covers a pain point relevant to the persona and explain why it is relevant.
+> [Link to an issue that covers a pain point.](https://github.com/J-man-2408/dip-pin-prj-adv-ocrroo-2025/issues/3) This issue is a pain point for the persona Alice because as a visually disabled person, she cannot always see button text or find controls that are visually available easily. Having keyboard shortcuts for common button tasks should help Alice use the app more proficiently.
 
 ### Validation
 
