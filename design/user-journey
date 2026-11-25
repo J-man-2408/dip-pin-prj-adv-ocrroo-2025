@@ -1,0 +1,11 @@
+# User Journey
+
+![Wireframe](artefacts/wireframe-at2-ap.drawio.png)
+
+For this wire frame an example of a user's journey could be:
+
+1. Opens the application and clicks the menu on the home page
+2. Navigates to the Video List/Video Player page
+3. Extracts text from a frame
+4. Navigates to the Extraction results page
+5. Save the text from the extraction by downloading the .txt file
