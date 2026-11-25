@@ -40,6 +40,22 @@
         <ScrollViewer Grid.Row="1"
                 VerticalScrollBarVisibility="Auto">
             <StackPanel>
+                <!-- Personalisation text size -->
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+					<Button Content="TEXT SMALLER" Click="SmallerButton_Click"
+							Background="#854b8f" Foreground="White"
+							Width="180" Height="40"
+							TextBlock.FontSize="20" TextBlock.FontWeight="Bold"/>
+
+					<TextBlock Text="{Binding Source={x:Static local:AppSettings.Instance}, Path=TextSize, StringFormat='Text size: {0:0}'}"
+							   FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0"/>
+
+					<Button Content="TEXT LARGER" Click="LargerButton_Click"
+							Background="#854b8f" Foreground="White"
+							Width="180" Height="40"
+							TextBlock.FontSize="20" TextBlock.FontWeight="Bold"/>
+				</StackPanel>
+				
                 <TextBlock x:Name="NoExtractions"
                         Text="No Extractions Yet"
                         FontSize="24"
@@ -67,24 +83,24 @@
                                     <StackPanel Grid.Column="0"
                                             Grid.Row="0">
                                         <TextBlock Text="Extraction File:"
-                                                FontSize="20"
+                                                FontSize="{Binding Source={x:Static local:AppSettings.Instance}, Path=TextSize}"
                                                 FontWeight="Bold"/>
                                         <TextBlock Text="{Binding Location}"
-                                                FontSize="20"
+                                                FontSize="{Binding Source={x:Static local:AppSettings.Instance}, Path=TextSize}"
                                                 Margin="0, 0, 0, 10"/>
 
                                         <TextBlock Text="Extraction Time:"
-                                                FontSize="20"
+                                                FontSize="{Binding Source={x:Static local:AppSettings.Instance}, Path=TextSize}"
                                                 FontWeight="Bold"/>
                                         <TextBlock Text="{Binding Timing}"
-                                                FontSize="20"
+                                                FontSize="{Binding Source={x:Static local:AppSettings.Instance}, Path=TextSize}"
                                                 Margin="0, 0, 0, 10"/>
 
                                         <TextBlock Text="Extraction Text:"
-                                                FontSize="20"
+                                                FontSize="{Binding Source={x:Static local:AppSettings.Instance}, Path=TextSize}"
                                                 FontWeight="Bold"/>
                                         <TextBlock Text="{Binding Text, Mode=OneWay}"
-                                                   FontSize="20"
+                                                   FontSize="{Binding Source={x:Static local:AppSettings.Instance}, Path=TextSize}"
                                                 Margin="0, 0, 0, 10"
                                                    AutomationProperties.Name="Extracted Text"/>
                                     </StackPanel>

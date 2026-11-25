@@ -80,5 +80,8 @@ namespace OCRRoo_Frontend
                 MessageBox.Show("Error: could not save the file. Try a different folder.", "Download");
             }
         }
+
+        private void SmallerButton_Click(object sender, RoutedEventArgs e) => AppSettings.Instance.TextSize -= 2;
+        private void LargerButton_Click(object sender, RoutedEventArgs e) => AppSettings.Instance.TextSize += 2;
     }
 }
